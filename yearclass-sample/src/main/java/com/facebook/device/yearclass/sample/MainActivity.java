@@ -9,32 +9,27 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 package com.facebook.device.yearclass.sample;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.facebook.device.yearclass.YearClass;
-
 public class MainActivity extends Activity {
   private static final String PREF_FILE = "YearClass";
   private static final String PREF_NAME = "yearclass";
   private TextView mYearClass;
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
     GetOrComputeYearClass findYearClass = new GetOrComputeYearClass();
     findYearClass.execute();
     mYearClass = (TextView) findViewById(R.id.year_class);
   }
 
   private class GetOrComputeYearClass extends AsyncTask<Void, Void, Integer> {
-
-    @Override
+@Override
     protected Integer doInBackground(Void... voids) {
       int yearClass = YearClass.CLASS_UNKNOWN;
       SharedPreferences prefs = getSharedPreferences(PREF_FILE, 0);
@@ -50,8 +45,7 @@ public class MainActivity extends Activity {
       }
       return yearClass;
     }
-
-    @Override
+ @Override
     protected void onPostExecute(Integer yearClass) {
       //update UI
       mYearClass.setText(Integer.toString(yearClass));

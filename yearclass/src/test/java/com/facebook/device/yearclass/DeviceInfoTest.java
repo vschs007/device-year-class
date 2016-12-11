@@ -10,13 +10,10 @@ package com.facebook.device.yearclass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.modules.junit4.PowerMockRunner;
-
 import static org.junit.Assert.*;
-
 @RunWith(PowerMockRunner.class)
 public class DeviceInfoTest {
-
-    @Test
+@Test
     public void testFileStringValid() {
         assertEquals(DeviceInfo.getCoresFromFileString("0-3"), 4);
         assertEquals(DeviceInfo.getCoresFromFileString("0-11"), 12);
